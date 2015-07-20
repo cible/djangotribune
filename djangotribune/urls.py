@@ -2,7 +2,7 @@
 """
 Root url's map for application
 """
-from django.conf.urls.defaults import *
+from django.conf.urls import patterns, url, include
 
 #from djangotribune.views.help import ReadmePage
 from djangotribune.views.remote import (RemotePlainView, RemoteJsonView, RemoteXmlView, 
