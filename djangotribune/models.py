@@ -125,7 +125,7 @@ class MessageManagerMixin(object):
         if filters:
             q = q.apply_filters(filters)
         # Ever force the right order to fetch
-        q = q.orderize(last_id=last_id)
+        q = self.orderize(last_id=last_id)
         return q
     
     def from_chan(self, channel=None):
