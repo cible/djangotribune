@@ -72,7 +72,7 @@ class PostRemoteBaseView(RemoteBaseMixin, PostBaseView):
         return self.form_valid_response(messages, backend)
 
     def form_valid_response(self, messages, backend):
-        return self.patch_response( http.HttpResponse(backend, mimetype=self.mimetype) )
+        return self.patch_response( http.HttpResponse(backend, content_type=self.mimetype) )
 
     def form_invalid(self, form):
         errors = []

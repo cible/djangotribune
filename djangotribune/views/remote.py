@@ -453,10 +453,10 @@ class RemoteBaseView(LockView):
     def get(self, request, *args, **kwargs):
         messages = self.get_backend()
         if self.http304_if_empty and len(messages) == 0:
-            return HttpResponseNotModified(mimetype=self.mimetype)
+            return HttpResponseNotModified(content_type=self.mimetype)
         
         backend = self.build_backend(messages)
-        return self.patch_response( http.HttpResponse(backend, mimetype=self.mimetype) )
+        return self.patch_response( http.HttpResponse(backend, content_type=self.mimetype) )
 
 class RemotePlainView(RemotePlainMixin, RemoteBaseView):
     """
